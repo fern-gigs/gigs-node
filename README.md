@@ -11,9 +11,18 @@ API documentation is available at <https://developers.gigs.com/docs/api>.
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-pmp1et?file=app.ts&view=editor)
 
 ```typescript
-import { TODO } from "TODO";
+import { GigsApiClient } from '@fern-api/gigs';
+import { Environment } from '@fern-api/gigs/environments';
 
-const TODO
+const client = new GigsApiClient({
+  environment: Environment.Production,
+  token: 'YOUR_TOKEN',
+});
+
+const response = await client.devices.retrieve('dmd_0SNlurA04OUskUGfGAn3Rh');
+
+console.log('Received response from Gigs!', response);
+}
 ```
 
 ## Beta status
