@@ -2,6 +2,8 @@
 
 [![npm shield](https://img.shields.io/npm/v/@fern-api/gigs)](https://www.npmjs.com/package/@fern-api/gigs)
 
+The Gigs Node.js library provides access to the Gigs API from JavaScript/TypeScript.
+
 ## Documentation
 
 API documentation is available at <https://developers.gigs.com/docs/api>.
