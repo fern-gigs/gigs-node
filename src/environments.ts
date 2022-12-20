@@ -3,8 +3,7 @@
  */
 
 export const Environment = {
-  Production: "https://api.example.com",
-  Sandbox: "https://sandbox.example.com",
+  Production: "https://api.gigs.com",
 } as const;
 
-export type Environment = typeof Environment.Production | typeof Environment.Sandbox;
+export type Environment = typeof Environment.Production;
