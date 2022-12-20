@@ -22,7 +22,6 @@ const client = new GigsApiClient({
 const response = await client.devices.retrieve('dmd_0SNlurA04OUskUGfGAn3Rh');
 
 console.log('Received response from Gigs!', response);
-}
 ```
 
 ## Beta status
