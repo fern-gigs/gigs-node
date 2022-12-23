@@ -10,7 +10,7 @@ export const PropertyErrorDetail: core.schemas.ObjectSchema<
   serializers.PropertyErrorDetail.Raw,
   GigsApi.PropertyErrorDetail
 > = core.schemas.object({
-  object: core.schemas.string(),
+  object: core.schemas.lazy(async () => (await import("../..")).PropertyErrorDetailObject),
   code: core.schemas.string(),
   message: core.schemas.string(),
   property: core.schemas.string(),
@@ -19,7 +19,7 @@ export const PropertyErrorDetail: core.schemas.ObjectSchema<
 
 export declare namespace PropertyErrorDetail {
   interface Raw {
-    object: string;
+    object: serializers.PropertyErrorDetailObject.Raw;
     code: string;
     message: string;
     property: string;

@@ -18,6 +18,42 @@ export declare namespace Client {
 export class Client {
   constructor(private readonly options: Client.Options) {}
 
+  public async create(
+    project: GigsApi.ProjectId,
+    request: GigsApi.CreateSubscriptionRequest
+  ): Promise<GigsApi.subscriptions.create.Response> {
+    const _response = await core.fetcher({
+      url: urlJoin(
+        this.options.environment ?? environments.Environment.Production,
+        `/projects/${project}//subscriptions`
+      ),
+      method: "POST",
+      headers: {
+        Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
+      },
+      body: await serializers.subscriptions.create.Request.json({
+        plan: request.plan,
+        sim: request.sim,
+        userAddress: request.userAddress,
+        user: request.user,
+        porting: request.porting,
+      }),
+    });
+    if (_response.ok) {
+      return {
+        ok: true,
+        body: await serializers.subscriptions.create.Response.parse(
+          _response.body as serializers.subscriptions.create.Response.Raw
+        ),
+      };
+    }
+
+    return {
+      ok: false,
+      error: GigsApi.subscriptions.create.Error._unknown(_response.error),
+    };
+  }
+
   public async listAll(
     project: GigsApi.ProjectId,
     request?: GigsApi.ListAllSubscriptionsRequest

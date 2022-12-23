@@ -8,6 +8,7 @@ import { Client as DevicesClient } from "./resources/devices/client/Client";
 import { Client as PlansClient } from "./resources/plans/client/Client";
 import { Client as ProjectsClient } from "./resources/projects/client/Client";
 import { Client as SubscriptionsClient } from "./resources/subscriptions/client/Client";
+import { Client as UsersClient } from "./resources/users/client/Client";
 
 export declare namespace GigsApiClient {
   interface Options {
@@ -41,5 +42,11 @@ export class GigsApiClient {
 
   public get subscriptions(): SubscriptionsClient {
     return (this.#subscriptions ??= new SubscriptionsClient(this.options));
+  }
+
+  #users: UsersClient | undefined;
+
+  public get users(): UsersClient {
+    return (this.#users ??= new UsersClient(this.options));
   }
 }

@@ -5,7 +5,7 @@
 import { GigsApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export type Response = core.APIResponse<GigsApi.Subscription, GigsApi.subscriptions.listAll.Error>;
+export type Response = core.APIResponse<GigsApi.SubscriptionList, GigsApi.subscriptions.listAll.Error>;
 export type Error = GigsApi.subscriptions.listAll.Error._Unknown;
 
 export declare namespace Error {

@@ -18,6 +18,57 @@ export declare namespace Client {
 export class Client {
   constructor(private readonly options: Client.Options) {}
 
+  public async list(project: string, request?: GigsApi.PlanListRequest): Promise<GigsApi.plans.list.Response> {
+    const _queryParams = new URLSearchParams();
+    if (request?.after != null) {
+      _queryParams.append("after", request?.after);
+    }
+
+    if (request?.before != null) {
+      _queryParams.append("before", request?.before);
+    }
+
+    if (request?.limit != null) {
+      _queryParams.append("limit", request?.limit.toString());
+    }
+
+    if (request?.plan != null) {
+      _queryParams.append("plan", request?.plan);
+    }
+
+    if (request?.sim != null) {
+      _queryParams.append("sim", request?.sim);
+    }
+
+    if (request?.status != null) {
+      _queryParams.append("status", request?.status);
+    }
+
+    if (request?.user != null) {
+      _queryParams.append("user", request?.user);
+    }
+
+    const _response = await core.fetcher({
+      url: urlJoin(this.options.environment ?? environments.Environment.Production, `/projects/${project}/plans/`),
+      method: "GET",
+      headers: {
+        Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
+      },
+      queryParameters: _queryParams,
+    });
+    if (_response.ok) {
+      return {
+        ok: true,
+        body: await serializers.plans.list.Response.parse(_response.body as serializers.plans.list.Response.Raw),
+      };
+    }
+
+    return {
+      ok: false,
+      error: GigsApi.plans.list.Error._unknown(_response.error),
+    };
+  }
+
   public async archive(project: string, id: GigsApi.PlanId): Promise<GigsApi.plans.archive.Response> {
     const _response = await core.fetcher({
       url: urlJoin(

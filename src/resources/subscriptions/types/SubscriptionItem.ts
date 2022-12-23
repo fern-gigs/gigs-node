@@ -12,13 +12,13 @@ export interface SubscriptionItem {
   currentPeriod?: GigsApi.CurrentPeriod;
   /** The phone number attached to the SIM in E.164 format. Only available for voice plans. */
   phoneNumber: string;
-  plan: string;
+  plan: GigsApi.Plan;
   /** Unique identifier for the porting. */
   porting?: string;
-  sim: string;
+  sim: GigsApi.Sim;
   /** The current status of the subscription. */
   status: GigsApi.SubscriptionStatus;
-  user: string;
+  user: GigsApi.User;
   /** Time when the subscription was activated. */
   activatedAt: Date;
   /** Time when the subscription was canceled. */

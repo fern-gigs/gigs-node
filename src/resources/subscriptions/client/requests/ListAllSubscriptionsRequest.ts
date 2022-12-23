@@ -6,11 +6,11 @@ import { GigsApi } from "@fern-api/gigs";
 
 export interface ListAllSubscriptionsRequest {
   /**
-   * A cursor for use in pagination. The after parameter takes an object ID that defines the position in the list, only items immediately following the item with that ID will be returned.
+   * A cursor for use in pagination. The `after` parameter takes an object ID that defines the position in the list, only items immediately following the item with that ID will be returned.
    */
   after?: string;
   /**
-   * A cursor for use in pagination. The before parameter takes an object ID that defines the position in the list, only items immediately preceding the item with that ID will be returned.
+   * A cursor for use in pagination. The `before` parameter takes an object ID that defines the position in the list, only items immediately preceding the item with that ID will be returned.
    */
   before?: string;
   /**

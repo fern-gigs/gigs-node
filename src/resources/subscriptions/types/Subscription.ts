@@ -5,12 +5,28 @@
 import { GigsApi } from "@fern-api/gigs";
 
 export interface Subscription {
-  /** Type of object is always `list`. */
-  object: string;
-  /** List of objects of type `subscription`. */
-  items: GigsApi.SubscriptionItem[];
-  /** A unique identifier to be used as `after` pagination parameter if more items are available sorted after the current batch of items. */
-  moreItemsAfter?: string;
-  /** A unique identifier to be used as `before` pagination parameter if more items are available sorted before the current batch of items. */
-  moreItemsBefore?: string;
+  /** Type of object is always `subscription`. */
+  object: GigsApi.SubscriptionObject;
+  /** Unique identifier for the subscription. */
+  id: string;
+  currentPeriod?: GigsApi.CurrentPeriod;
+  /** The phone number attached to the SIM in E.164 format. Only available for voice plans. */
+  phoneNumber: string;
+  plan: GigsApi.Plan;
+  /** Unique identifier for the porting. */
+  porting?: string;
+  sim?: GigsApi.Sim;
+  /** The current status of the subscription. */
+  status: GigsApi.SubscriptionStatus;
+  user: GigsApi.User;
+  /** Time when the subscription was activated. */
+  activatedAt: Date;
+  /** Time when the subscription was canceled. */
+  canceledAt: Date;
+  /** Time when the subscription was created. */
+  createdAt: Date;
+  /** Time when the subscription was ended. */
+  endedAt: Date;
+  /** Time when the subscription was first used. */
+  firstUsageAt: Date;
 }

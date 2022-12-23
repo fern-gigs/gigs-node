@@ -12,11 +12,11 @@ export const SubscriptionItem: core.schemas.ObjectSchema<serializers.Subscriptio
     id: core.schemas.lazy(async () => (await import("../..")).SubscriptionId),
     currentPeriod: core.schemas.lazyObject(async () => (await import("../..")).CurrentPeriod).optional(),
     phoneNumber: core.schemas.string(),
-    plan: core.schemas.string(),
+    plan: core.schemas.lazyObject(async () => (await import("../..")).Plan),
     porting: core.schemas.string().optional(),
-    sim: core.schemas.string(),
+    sim: core.schemas.lazyObject(async () => (await import("../..")).Sim),
     status: core.schemas.lazy(async () => (await import("../..")).SubscriptionStatus),
-    user: core.schemas.string(),
+    user: core.schemas.lazyObject(async () => (await import("../..")).User),
     activatedAt: core.schemas.date(),
     canceledAt: core.schemas.date(),
     createdAt: core.schemas.date(),
@@ -30,11 +30,11 @@ export declare namespace SubscriptionItem {
     id: serializers.SubscriptionId.Raw;
     currentPeriod?: serializers.CurrentPeriod.Raw | null;
     phoneNumber: string;
-    plan: string;
+    plan: serializers.Plan.Raw;
     porting?: string | null;
-    sim: string;
+    sim: serializers.Sim.Raw;
     status: serializers.SubscriptionStatus.Raw;
-    user: string;
+    user: serializers.User.Raw;
     activatedAt: string;
     canceledAt: string;
     createdAt: string;
