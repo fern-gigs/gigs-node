@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Price: core.schemas.ObjectSchema<serializers.Price.Raw, GigsApi.Price> = core.schemas.object({
+export const Price: core.schemas.ObjectSchema<serializers.Price.Raw, GigsGigsCoreApi.Price> = core.schemas.object({
   amount: core.schemas.number(),
   currency: core.schemas.string(),
 });

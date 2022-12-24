@@ -3,12 +3,12 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
 export const PlanRequirementsAddress: core.schemas.Schema<
   serializers.PlanRequirementsAddress.Raw,
-  GigsApi.PlanRequirementsAddress
+  GigsGigsCoreApi.PlanRequirementsAddress
 > = core.schemas.enum_(["none", "present", "verified"]);
 
 export declare namespace PlanRequirementsAddress {

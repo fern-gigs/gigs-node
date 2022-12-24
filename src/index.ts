@@ -1,2 +1,2 @@
-export * as GigsApi from "./resources";
-export { GigsApiClient } from "./Client";
+export * as GigsGigsCoreApi from "./resources";
+export { GigsGigsCoreApiClient } from "./Client";

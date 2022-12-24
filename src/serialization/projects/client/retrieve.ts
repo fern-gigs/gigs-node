@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Response: core.schemas.Schema<serializers.projects.retrieve.Response.Raw, GigsApi.Project> =
+export const Response: core.schemas.Schema<serializers.projects.retrieve.Response.Raw, GigsGigsCoreApi.Project> =
   core.schemas.lazyObject(async () => (await import("../..")).Project);
 
 export declare namespace Response {

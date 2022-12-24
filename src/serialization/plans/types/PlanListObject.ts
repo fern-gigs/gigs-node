@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const PlanListObject: core.schemas.Schema<serializers.PlanListObject.Raw, GigsApi.PlanListObject> =
+export const PlanListObject: core.schemas.Schema<serializers.PlanListObject.Raw, GigsGigsCoreApi.PlanListObject> =
   core.schemas.enum_(["list"]);
 
 export declare namespace PlanListObject {

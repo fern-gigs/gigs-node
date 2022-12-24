@@ -3,21 +3,23 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const InvalidIccidBody: core.schemas.ObjectSchema<serializers.InvalidIccidBody.Raw, GigsApi.InvalidIccidBody> =
-  core.schemas.object({
-    object: core.schemas.lazy(async () => (await import("../..")).InvalidIccidBodyObject),
-    code: core.schemas.string().optional(),
-    details: core.schemas
-      .list(core.schemas.lazyObject(async () => (await import("../..")).PropertyErrorDetail))
-      .optional(),
-    documentation: core.schemas.list(core.schemas.string()).optional(),
-    hint: core.schemas.string().optional(),
-    message: core.schemas.string(),
-    type: core.schemas.string(),
-  });
+export const InvalidIccidBody: core.schemas.ObjectSchema<
+  serializers.InvalidIccidBody.Raw,
+  GigsGigsCoreApi.InvalidIccidBody
+> = core.schemas.object({
+  object: core.schemas.lazy(async () => (await import("../..")).InvalidIccidBodyObject),
+  code: core.schemas.string().optional(),
+  details: core.schemas
+    .list(core.schemas.lazyObject(async () => (await import("../..")).PropertyErrorDetail))
+    .optional(),
+  documentation: core.schemas.list(core.schemas.string()).optional(),
+  hint: core.schemas.string().optional(),
+  message: core.schemas.string(),
+  type: core.schemas.string(),
+});
 
 export declare namespace InvalidIccidBody {
   interface Raw {

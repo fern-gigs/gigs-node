@@ -3,13 +3,15 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Support: core.schemas.ObjectSchema<serializers.Support.Raw, GigsApi.Support> = core.schemas.object({
-  email: core.schemas.string().optional(),
-  phoneNumber: core.schemas.string().optional(),
-});
+export const Support: core.schemas.ObjectSchema<serializers.Support.Raw, GigsGigsCoreApi.Support> = core.schemas.object(
+  {
+    email: core.schemas.string().optional(),
+    phoneNumber: core.schemas.string().optional(),
+  }
+);
 
 export declare namespace Support {
   interface Raw {

@@ -3,13 +3,14 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Payments: core.schemas.ObjectSchema<serializers.Payments.Raw, GigsApi.Payments> = core.schemas.object({
-  currency: core.schemas.string(),
-  mode: core.schemas.lazy(async () => (await import("../..")).PaymentsMode),
-});
+export const Payments: core.schemas.ObjectSchema<serializers.Payments.Raw, GigsGigsCoreApi.Payments> =
+  core.schemas.object({
+    currency: core.schemas.string(),
+    mode: core.schemas.lazy(async () => (await import("../..")).PaymentsMode),
+  });
 
 export declare namespace Payments {
   interface Raw {

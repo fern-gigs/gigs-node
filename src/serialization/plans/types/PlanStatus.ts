@@ -3,15 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const PlanStatus: core.schemas.Schema<serializers.PlanStatus.Raw, GigsApi.PlanStatus> = core.schemas.enum_([
-  "available",
-  "archived",
-  "pending",
-  "draft",
-]);
+export const PlanStatus: core.schemas.Schema<serializers.PlanStatus.Raw, GigsGigsCoreApi.PlanStatus> =
+  core.schemas.enum_(["available", "archived", "pending", "draft"]);
 
 export declare namespace PlanStatus {
   type Raw = "available" | "archived" | "pending" | "draft";

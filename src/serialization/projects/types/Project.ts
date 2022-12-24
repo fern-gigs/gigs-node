@@ -3,22 +3,24 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Project: core.schemas.ObjectSchema<serializers.Project.Raw, GigsApi.Project> = core.schemas.object({
-  object: core.schemas.string(),
-  id: core.schemas.lazy(async () => (await import("../..")).ProjectId),
-  image: core.schemas.string().optional(),
-  legal: core.schemas.lazyObject(async () => (await import("../..")).LegalAddress).optional(),
-  locales: core.schemas.list(core.schemas.string()),
-  name: core.schemas.string(),
-  organization: core.schemas.lazyObject(async () => (await import("../..")).Organization),
-  payments: core.schemas.lazyObject(async () => (await import("../..")).Payments),
-  subscriptionOwner: core.schemas.lazy(async () => (await import("../..")).SubscriptionOwner),
-  support: core.schemas.lazyObject(async () => (await import("../..")).Support).optional(),
-  createdAt: core.schemas.date(),
-});
+export const Project: core.schemas.ObjectSchema<serializers.Project.Raw, GigsGigsCoreApi.Project> = core.schemas.object(
+  {
+    object: core.schemas.string(),
+    id: core.schemas.lazy(async () => (await import("../..")).ProjectId),
+    image: core.schemas.string().optional(),
+    legal: core.schemas.lazyObject(async () => (await import("../..")).LegalAddress).optional(),
+    locales: core.schemas.list(core.schemas.string()),
+    name: core.schemas.string(),
+    organization: core.schemas.lazyObject(async () => (await import("../..")).Organization),
+    payments: core.schemas.lazyObject(async () => (await import("../..")).Payments),
+    subscriptionOwner: core.schemas.lazy(async () => (await import("../..")).SubscriptionOwner),
+    support: core.schemas.lazyObject(async () => (await import("../..")).Support).optional(),
+    createdAt: core.schemas.date(),
+  }
+);
 
 export declare namespace Project {
   interface Raw {

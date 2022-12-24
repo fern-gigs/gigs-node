@@ -3,12 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const UserObject: core.schemas.Schema<serializers.UserObject.Raw, GigsApi.UserObject> = core.schemas.enum_([
-  "user",
-]);
+export const UserObject: core.schemas.Schema<serializers.UserObject.Raw, GigsGigsCoreApi.UserObject> =
+  core.schemas.enum_(["user"]);
 
 export declare namespace UserObject {
   type Raw = "user";

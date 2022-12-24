@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const CoverageObject: core.schemas.Schema<serializers.CoverageObject.Raw, GigsApi.CoverageObject> =
+export const CoverageObject: core.schemas.Schema<serializers.CoverageObject.Raw, GigsGigsCoreApi.CoverageObject> =
   core.schemas.enum_(["coverage"]);
 
 export declare namespace CoverageObject {

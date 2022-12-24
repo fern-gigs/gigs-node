@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Sim: core.schemas.ObjectSchema<serializers.Sim.Raw, GigsApi.Sim> = core.schemas.object({
+export const Sim: core.schemas.ObjectSchema<serializers.Sim.Raw, GigsGigsCoreApi.Sim> = core.schemas.object({
   object: core.schemas.lazy(async () => (await import("../..")).SimObject),
   id: core.schemas.string(),
   iccid: core.schemas.string(),

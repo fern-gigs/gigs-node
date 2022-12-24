@@ -3,15 +3,16 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Validity: core.schemas.ObjectSchema<serializers.Validity.Raw, GigsApi.Validity> = core.schemas.object({
-  minimumPeriods: core.schemas.number(),
-  type: core.schemas.lazy(async () => (await import("../..")).ValidityType),
-  unit: core.schemas.lazy(async () => (await import("../..")).ValidityUnit),
-  value: core.schemas.number(),
-});
+export const Validity: core.schemas.ObjectSchema<serializers.Validity.Raw, GigsGigsCoreApi.Validity> =
+  core.schemas.object({
+    minimumPeriods: core.schemas.number(),
+    type: core.schemas.lazy(async () => (await import("../..")).ValidityType),
+    unit: core.schemas.lazy(async () => (await import("../..")).ValidityUnit),
+    value: core.schemas.number(),
+  });
 
 export declare namespace Validity {
   interface Raw {

@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const DoesNotExist: core.schemas.Schema<serializers.DoesNotExist.Raw, GigsApi.DoesNotExist> =
+export const DoesNotExist: core.schemas.Schema<serializers.DoesNotExist.Raw, GigsGigsCoreApi.DoesNotExist> =
   core.schemas.lazyObject(async () => (await import("../..")).DoesNotExistBody);
 
 export declare namespace DoesNotExist {

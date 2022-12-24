@@ -3,12 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const PlanSmsUnit: core.schemas.Schema<serializers.PlanSmsUnit.Raw, GigsApi.PlanSmsUnit> = core.schemas.enum_([
-  "message",
-]);
+export const PlanSmsUnit: core.schemas.Schema<serializers.PlanSmsUnit.Raw, GigsGigsCoreApi.PlanSmsUnit> =
+  core.schemas.enum_(["message"]);
 
 export declare namespace PlanSmsUnit {
   type Raw = "message";

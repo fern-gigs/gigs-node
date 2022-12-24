@@ -3,11 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Device: core.schemas.ObjectSchema<serializers.Device.Raw, GigsApi.Device> = core.schemas.object({
-  object: core.schemas.string(),
+export const Device: core.schemas.ObjectSchema<serializers.Device.Raw, GigsGigsCoreApi.Device> = core.schemas.object({
+  object: core.schemas.lazy(async () => (await import("../..")).DeviceModelObject),
   id: core.schemas.lazy(async () => (await import("../..")).DeviceId),
   brand: core.schemas.string(),
   name: core.schemas.string(),
@@ -17,7 +17,7 @@ export const Device: core.schemas.ObjectSchema<serializers.Device.Raw, GigsApi.D
 
 export declare namespace Device {
   interface Raw {
-    object: string;
+    object: serializers.DeviceModelObject.Raw;
     id: serializers.DeviceId.Raw;
     brand: string;
     name: string;

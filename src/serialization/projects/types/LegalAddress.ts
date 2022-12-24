@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const LegalAddress: core.schemas.ObjectSchema<serializers.LegalAddress.Raw, GigsApi.LegalAddress> =
+export const LegalAddress: core.schemas.ObjectSchema<serializers.LegalAddress.Raw, GigsGigsCoreApi.LegalAddress> =
   core.schemas.object({
     name: core.schemas.string(),
     city: core.schemas.string(),

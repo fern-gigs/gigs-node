@@ -10,15 +10,15 @@ import { Client as ProjectsClient } from "./resources/projects/client/Client";
 import { Client as SubscriptionsClient } from "./resources/subscriptions/client/Client";
 import { Client as UsersClient } from "./resources/users/client/Client";
 
-export declare namespace GigsApiClient {
+export declare namespace GigsGigsCoreApiClient {
   interface Options {
     environment?: environments.Environment | string;
     token?: core.Supplier<core.BearerToken>;
   }
 }
 
-export class GigsApiClient {
-  constructor(private readonly options: GigsApiClient.Options) {}
+export class GigsGigsCoreApiClient {
+  constructor(private readonly options: GigsGigsCoreApiClient.Options) {}
 
   #devices: DevicesClient | undefined;
 

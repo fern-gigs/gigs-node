@@ -4,7 +4,7 @@
 
 import * as environments from "../../../environments";
 import * as core from "../../../core";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import urlJoin from "url-join";
 import * as serializers from "../../../serialization";
 
@@ -19,9 +19,9 @@ export class Client {
   constructor(private readonly options: Client.Options) {}
 
   public async create(
-    project: GigsApi.ProjectId,
-    request: GigsApi.CreateSubscriptionRequest
-  ): Promise<GigsApi.subscriptions.create.Response> {
+    project: GigsGigsCoreApi.ProjectId,
+    request: GigsGigsCoreApi.CreateSubscriptionRequest
+  ): Promise<GigsGigsCoreApi.subscriptions.create.Response> {
     const _response = await core.fetcher({
       url: urlJoin(
         this.options.environment ?? environments.Environment.Production,
@@ -50,14 +50,14 @@ export class Client {
 
     return {
       ok: false,
-      error: GigsApi.subscriptions.create.Error._unknown(_response.error),
+      error: GigsGigsCoreApi.subscriptions.create.Error._unknown(_response.error),
     };
   }
 
   public async listAll(
-    project: GigsApi.ProjectId,
-    request?: GigsApi.ListAllSubscriptionsRequest
-  ): Promise<GigsApi.subscriptions.listAll.Response> {
+    project: GigsGigsCoreApi.ProjectId,
+    request?: GigsGigsCoreApi.ListAllSubscriptionsRequest
+  ): Promise<GigsGigsCoreApi.subscriptions.listAll.Response> {
     const _queryParams = new URLSearchParams();
     if (request?.after != null) {
       _queryParams.append("after", request?.after);
@@ -109,7 +109,7 @@ export class Client {
 
     return {
       ok: false,
-      error: GigsApi.subscriptions.listAll.Error._unknown(_response.error),
+      error: GigsGigsCoreApi.subscriptions.listAll.Error._unknown(_response.error),
     };
   }
 }

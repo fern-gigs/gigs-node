@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Organization: core.schemas.ObjectSchema<serializers.Organization.Raw, GigsApi.Organization> =
+export const Organization: core.schemas.ObjectSchema<serializers.Organization.Raw, GigsGigsCoreApi.Organization> =
   core.schemas.object({
     object: core.schemas.string(),
     id: core.schemas.lazy(async () => (await import("../..")).OrganizationId),

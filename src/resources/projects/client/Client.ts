@@ -4,7 +4,7 @@
 
 import * as environments from "../../../environments";
 import * as core from "../../../core";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import urlJoin from "url-join";
 import * as serializers from "../../../serialization";
 
@@ -18,7 +18,7 @@ export declare namespace Client {
 export class Client {
   constructor(private readonly options: Client.Options) {}
 
-  public async retrieve(project: GigsApi.ProjectId): Promise<GigsApi.projects.retrieve.Response> {
+  public async retrieve(project: GigsGigsCoreApi.ProjectId): Promise<GigsGigsCoreApi.projects.retrieve.Response> {
     const _response = await core.fetcher({
       url: urlJoin(this.options.environment ?? environments.Environment.Production, `/projects/${project}`),
       method: "GET",
@@ -40,7 +40,7 @@ export class Client {
         case 404:
           return {
             ok: false,
-            error: GigsApi.projects.retrieve.Error.doesNotExist(
+            error: GigsGigsCoreApi.projects.retrieve.Error.doesNotExist(
               await serializers.DoesNotExist.parse(_response.error.body as serializers.DoesNotExist.Raw)
             ),
           };
@@ -49,7 +49,7 @@ export class Client {
 
     return {
       ok: false,
-      error: GigsApi.projects.retrieve.Error._unknown(_response.error),
+      error: GigsGigsCoreApi.projects.retrieve.Error._unknown(_response.error),
     };
   }
 }

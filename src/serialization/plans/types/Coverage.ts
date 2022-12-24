@@ -3,15 +3,16 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Coverage: core.schemas.ObjectSchema<serializers.Coverage.Raw, GigsApi.Coverage> = core.schemas.object({
-  object: core.schemas.lazy(async () => (await import("../..")).CoverageObject),
-  id: core.schemas.string(),
-  countries: core.schemas.list(core.schemas.string()),
-  name: core.schemas.string(),
-});
+export const Coverage: core.schemas.ObjectSchema<serializers.Coverage.Raw, GigsGigsCoreApi.Coverage> =
+  core.schemas.object({
+    object: core.schemas.lazy(async () => (await import("../..")).CoverageObject),
+    id: core.schemas.string(),
+    countries: core.schemas.list(core.schemas.string()),
+    name: core.schemas.string(),
+  });
 
 export declare namespace Coverage {
   interface Raw {

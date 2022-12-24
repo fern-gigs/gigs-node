@@ -3,10 +3,12 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const DataUnit: core.schemas.Schema<serializers.DataUnit.Raw, GigsApi.DataUnit> = core.schemas.enum_(["byte"]);
+export const DataUnit: core.schemas.Schema<serializers.DataUnit.Raw, GigsGigsCoreApi.DataUnit> = core.schemas.enum_([
+  "byte",
+]);
 
 export declare namespace DataUnit {
   type Raw = "byte";

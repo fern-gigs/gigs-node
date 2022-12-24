@@ -3,26 +3,28 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const SubscriptionItem: core.schemas.ObjectSchema<serializers.SubscriptionItem.Raw, GigsApi.SubscriptionItem> =
-  core.schemas.object({
-    object: core.schemas.string(),
-    id: core.schemas.lazy(async () => (await import("../..")).SubscriptionId),
-    currentPeriod: core.schemas.lazyObject(async () => (await import("../..")).CurrentPeriod).optional(),
-    phoneNumber: core.schemas.string(),
-    plan: core.schemas.lazyObject(async () => (await import("../..")).Plan),
-    porting: core.schemas.string().optional(),
-    sim: core.schemas.lazyObject(async () => (await import("../..")).Sim),
-    status: core.schemas.lazy(async () => (await import("../..")).SubscriptionStatus),
-    user: core.schemas.lazyObject(async () => (await import("../..")).User),
-    activatedAt: core.schemas.date(),
-    canceledAt: core.schemas.date(),
-    createdAt: core.schemas.date(),
-    endedAt: core.schemas.date(),
-    firstUsageAt: core.schemas.date(),
-  });
+export const SubscriptionItem: core.schemas.ObjectSchema<
+  serializers.SubscriptionItem.Raw,
+  GigsGigsCoreApi.SubscriptionItem
+> = core.schemas.object({
+  object: core.schemas.string(),
+  id: core.schemas.lazy(async () => (await import("../..")).SubscriptionId),
+  currentPeriod: core.schemas.lazyObject(async () => (await import("../..")).CurrentPeriod).optional(),
+  phoneNumber: core.schemas.string(),
+  plan: core.schemas.lazyObject(async () => (await import("../..")).Plan),
+  porting: core.schemas.string().optional(),
+  sim: core.schemas.lazyObject(async () => (await import("../..")).Sim),
+  status: core.schemas.lazy(async () => (await import("../..")).SubscriptionStatus),
+  user: core.schemas.lazyObject(async () => (await import("../..")).User),
+  activatedAt: core.schemas.date(),
+  canceledAt: core.schemas.date(),
+  createdAt: core.schemas.date(),
+  endedAt: core.schemas.date(),
+  firstUsageAt: core.schemas.date(),
+});
 
 export declare namespace SubscriptionItem {
   interface Raw {

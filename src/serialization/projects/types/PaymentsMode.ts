@@ -3,12 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const PaymentsMode: core.schemas.Schema<serializers.PaymentsMode.Raw, GigsApi.PaymentsMode> = core.schemas.enum_(
-  ["live", "test"]
-);
+export const PaymentsMode: core.schemas.Schema<serializers.PaymentsMode.Raw, GigsGigsCoreApi.PaymentsMode> =
+  core.schemas.enum_(["live", "test"]);
 
 export declare namespace PaymentsMode {
   type Raw = "live" | "test";

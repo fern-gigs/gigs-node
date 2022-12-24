@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const SimStatus: core.schemas.Schema<serializers.SimStatus.Raw, GigsApi.SimStatus> = core.schemas.enum_([
+export const SimStatus: core.schemas.Schema<serializers.SimStatus.Raw, GigsGigsCoreApi.SimStatus> = core.schemas.enum_([
   "inactive",
   "active",
   "retired",

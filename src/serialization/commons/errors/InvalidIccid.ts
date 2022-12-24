@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const InvalidIccid: core.schemas.Schema<serializers.InvalidIccid.Raw, GigsApi.InvalidIccid> =
+export const InvalidIccid: core.schemas.Schema<serializers.InvalidIccid.Raw, GigsGigsCoreApi.InvalidIccid> =
   core.schemas.lazyObject(async () => (await import("../..")).InvalidIccidBody);
 
 export declare namespace InvalidIccid {

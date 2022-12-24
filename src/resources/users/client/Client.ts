@@ -4,7 +4,7 @@
 
 import * as environments from "../../../environments";
 import * as core from "../../../core";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import urlJoin from "url-join";
 import * as serializers from "../../../serialization";
 
@@ -19,9 +19,9 @@ export class Client {
   constructor(private readonly options: Client.Options) {}
 
   public async create(
-    project: GigsApi.ProjectId,
-    request: GigsApi.CreateUserRequest
-  ): Promise<GigsApi.users.create.Response> {
+    project: GigsGigsCoreApi.ProjectId,
+    request: GigsGigsCoreApi.CreateUserRequest
+  ): Promise<GigsGigsCoreApi.users.create.Response> {
     const _response = await core.fetcher({
       url: urlJoin(this.options.environment ?? environments.Environment.Production, `/projects/${project}//users`),
       method: "POST",
@@ -48,7 +48,7 @@ export class Client {
         case 422:
           return {
             ok: false,
-            error: GigsApi.users.create.Error.invalidIccid(
+            error: GigsGigsCoreApi.users.create.Error.invalidIccid(
               await serializers.InvalidIccid.parse(_response.error.body as serializers.InvalidIccid.Raw)
             ),
           };
@@ -57,7 +57,7 @@ export class Client {
 
     return {
       ok: false,
-      error: GigsApi.users.create.Error._unknown(_response.error),
+      error: GigsGigsCoreApi.users.create.Error._unknown(_response.error),
     };
   }
 }

@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const DeviceModelType: core.schemas.Schema<serializers.DeviceModelType.Raw, GigsApi.DeviceModelType> =
+export const DeviceModelType: core.schemas.Schema<serializers.DeviceModelType.Raw, GigsGigsCoreApi.DeviceModelType> =
   core.schemas.enum_([
     "car",
     "iot",

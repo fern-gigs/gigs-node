@@ -3,21 +3,23 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const DoesNotExistBody: core.schemas.ObjectSchema<serializers.DoesNotExistBody.Raw, GigsApi.DoesNotExistBody> =
-  core.schemas.object({
-    object: core.schemas.string(),
-    code: core.schemas.string().optional(),
-    details: core.schemas
-      .list(core.schemas.lazyObject(async () => (await import("../..")).PropertyErrorDetail))
-      .optional(),
-    documentation: core.schemas.list(core.schemas.string()).optional(),
-    hint: core.schemas.string().optional(),
-    message: core.schemas.string(),
-    type: core.schemas.string(),
-  });
+export const DoesNotExistBody: core.schemas.ObjectSchema<
+  serializers.DoesNotExistBody.Raw,
+  GigsGigsCoreApi.DoesNotExistBody
+> = core.schemas.object({
+  object: core.schemas.string(),
+  code: core.schemas.string().optional(),
+  details: core.schemas
+    .list(core.schemas.lazyObject(async () => (await import("../..")).PropertyErrorDetail))
+    .optional(),
+  documentation: core.schemas.list(core.schemas.string()).optional(),
+  hint: core.schemas.string().optional(),
+  message: core.schemas.string(),
+  type: core.schemas.string(),
+});
 
 export declare namespace DoesNotExistBody {
   interface Raw {

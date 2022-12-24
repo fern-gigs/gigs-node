@@ -3,15 +3,16 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const PlanList: core.schemas.ObjectSchema<serializers.PlanList.Raw, GigsApi.PlanList> = core.schemas.object({
-  object: core.schemas.lazy(async () => (await import("../..")).PlanListObject),
-  items: core.schemas.list(core.schemas.lazyObject(async () => (await import("../..")).Plan)),
-  moreItemsAfter: core.schemas.string().optional(),
-  moreItemsBefore: core.schemas.string().optional(),
-});
+export const PlanList: core.schemas.ObjectSchema<serializers.PlanList.Raw, GigsGigsCoreApi.PlanList> =
+  core.schemas.object({
+    object: core.schemas.lazy(async () => (await import("../..")).PlanListObject),
+    items: core.schemas.list(core.schemas.lazyObject(async () => (await import("../..")).Plan)),
+    moreItemsAfter: core.schemas.string().optional(),
+    moreItemsBefore: core.schemas.string().optional(),
+  });
 
 export declare namespace PlanList {
   interface Raw {

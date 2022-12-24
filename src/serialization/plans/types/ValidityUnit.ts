@@ -3,12 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const ValidityUnit: core.schemas.Schema<serializers.ValidityUnit.Raw, GigsApi.ValidityUnit> = core.schemas.enum_(
-  ["day", "month"]
-);
+export const ValidityUnit: core.schemas.Schema<serializers.ValidityUnit.Raw, GigsGigsCoreApi.ValidityUnit> =
+  core.schemas.enum_(["day", "month"]);
 
 export declare namespace ValidityUnit {
   type Raw = "day" | "month";

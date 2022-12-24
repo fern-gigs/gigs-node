@@ -3,10 +3,11 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const ProjectId: core.schemas.Schema<serializers.ProjectId.Raw, GigsApi.ProjectId> = core.schemas.string();
+export const ProjectId: core.schemas.Schema<serializers.ProjectId.Raw, GigsGigsCoreApi.ProjectId> =
+  core.schemas.string();
 
 export declare namespace ProjectId {
   type Raw = string;

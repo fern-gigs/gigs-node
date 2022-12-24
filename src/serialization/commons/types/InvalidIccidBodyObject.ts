@@ -3,12 +3,12 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
 export const InvalidIccidBodyObject: core.schemas.Schema<
   serializers.InvalidIccidBodyObject.Raw,
-  GigsApi.InvalidIccidBodyObject
+  GigsGigsCoreApi.InvalidIccidBodyObject
 > = core.schemas.enum_(["error"]);
 
 export declare namespace InvalidIccidBodyObject {

@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const Request: core.schemas.Schema<serializers.users.create.Request.Raw, GigsApi.CreateUserRequest> =
+export const Request: core.schemas.Schema<serializers.users.create.Request.Raw, GigsGigsCoreApi.CreateUserRequest> =
   core.schemas.object({
     object: core.schemas.lazy(async () => (await import("../..")).UserObject),
     birthday: core.schemas.string(),
@@ -25,7 +25,7 @@ export declare namespace Request {
   }
 }
 
-export const Response: core.schemas.Schema<serializers.users.create.Response.Raw, GigsApi.User> =
+export const Response: core.schemas.Schema<serializers.users.create.Response.Raw, GigsGigsCoreApi.User> =
   core.schemas.lazyObject(async () => (await import("../..")).User);
 
 export declare namespace Response {

@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
-export const CurrentPeriod: core.schemas.ObjectSchema<serializers.CurrentPeriod.Raw, GigsApi.CurrentPeriod> =
+export const CurrentPeriod: core.schemas.ObjectSchema<serializers.CurrentPeriod.Raw, GigsGigsCoreApi.CurrentPeriod> =
   core.schemas.object({
     number: core.schemas.number(),
     start: core.schemas.date(),

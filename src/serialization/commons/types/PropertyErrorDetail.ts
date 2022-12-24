@@ -3,12 +3,12 @@
  */
 
 import * as serializers from "../..";
-import { GigsApi } from "@fern-api/gigs";
+import { GigsGigsCoreApi } from "@fern-api/gigs";
 import * as core from "../../../core";
 
 export const PropertyErrorDetail: core.schemas.ObjectSchema<
   serializers.PropertyErrorDetail.Raw,
-  GigsApi.PropertyErrorDetail
+  GigsGigsCoreApi.PropertyErrorDetail
 > = core.schemas.object({
   object: core.schemas.lazy(async () => (await import("../..")).PropertyErrorDetailObject),
   code: core.schemas.string(),
