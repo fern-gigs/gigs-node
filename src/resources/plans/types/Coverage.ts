@@ -4,6 +4,15 @@
 
 import { GigsGigsCoreApi } from "@fern-api/gigs";
 
+/**
+ * @example
+ *     {
+ *         object: GigsGigsCoreApi.CoverageObject.Coverage,
+ *         id: "de",
+ *         countries: ["DE", "FR", "US"],
+ *         name: "Europe"
+ *     }
+ */
 export interface Coverage {
   /** Type of object is always `coverage`. */
   object: GigsGigsCoreApi.CoverageObject;
