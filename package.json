@@ -1,6 +1,6 @@
 {
     "name": "@fern-api/gigs",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "repository": "https://github.com/fern-gigs/gigs-node",
     "files": [
         "core",
